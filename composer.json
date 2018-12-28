@@ -1,10 +1,10 @@
 {
-    "name": "phpbenchmarks/ubiquity-common",
-    "license": "proprietary",
-    "type": "project",
-    "autoload": {
-        "psr-4": {
-            "PhpBenchmarksUbiquity\\HelloWorld\\": ""
-        }
-    }
+	"name" : "phpbenchmarks/ubiquity-common",
+	"license" : "proprietary",
+	"type" : "project",
+	"autoload" : {
+		"psr-4" : {
+			"PhpBenchmarksUbiquity\\RestApi\\" : ""
+		}
+	}
 }
