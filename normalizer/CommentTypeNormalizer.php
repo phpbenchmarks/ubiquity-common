@@ -2,11 +2,21 @@
 
 namespace PhpBenchmarksUbiquity\RestApi\normalizer;
 
+use Ubiquity\translation\Translator;
 use PhpBenchmarksRestData\CommentType;
 use Ubiquity\contents\normalizers\NormalizerInterface;
-use Ubiquity\translation\TranslatorManager;
 
 class CommentTypeNormalizer implements NormalizerInterface {
+	
+	/**
+	 * @var Translator
+	 */
+	private $translator;
+	
+	
+	public function __construct(Translator $translator){
+		$this->translator=$translator;
+	}
 
 	public function supportsNormalization($data) {
 		return $data instanceof CommentType;
@@ -16,7 +26,7 @@ class CommentTypeNormalizer implements NormalizerInterface {
 		return [
 				'id' => $object->getId(),
 				'name' => $object->getName(),
-				'translated' => TranslatorManager::tRans('translated.3000', [], 'phpbenchmarks'),
+				'translated' => $this->translator->trans('translated.3000', [], 'phpbenchmarks'),
 		];
 	}
 }
