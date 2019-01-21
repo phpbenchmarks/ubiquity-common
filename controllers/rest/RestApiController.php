@@ -28,7 +28,7 @@ class RestApiController extends RestController{
 	 */
 	public function index() {
 		EventsManager::trigger(DefineLocaleEventListener::EVENT_NAME,$this->translator);
-		NormalizersManager::registerClasses([User::class=>UserNormalizer::class,CommentType::class=>CommentTypeNormalizer::class,Comment::class=>CommentNormalizer::class]);
+		NormalizersManager::registerClasses([User::class=>UserNormalizer::class,CommentType::class=>CommentTypeNormalizer::class,Comment::class=>CommentNormalizer::class], $this->translator);
 		$datas=NormalizersManager::normalizeArray_(Service::getUsers());
 		echo $this->_getResponseFormatter()->toJson($datas);
 	}

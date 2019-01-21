@@ -4,7 +4,6 @@ namespace PhpBenchmarksUbiquity\RestApi\eventListener;
 
 use Ubiquity\events\EventListenerInterface;
 use Ubiquity\utils\http\URequest;
-use Ubiquity\translation\TranslatorManager;
 
 class DefineLocaleEventListener implements EventListenerInterface {
 	
@@ -14,7 +13,7 @@ class DefineLocaleEventListener implements EventListenerInterface {
 		$locales = ['fr_FR', 'en_GB', 'aa_BB'];
 		$locale = $locales[rand(0, 2)];
 		URequest::setLocale($locale);
-		TranslatorManager::setLocale($locale);
+		$params[0]->setLocale($locale);
 	}
 }
 
