@@ -16,7 +16,7 @@ class CommentTypeNormalizer implements NormalizerInterface {
 		return [
 				'id' => $object->getId(),
 				'name' => $object->getName(),
-				'translated' => TranslatorManager::tRans('translated.3000', [], 'phpbenchmarks'),
+				'translated' => TranslatorManager::trans('translated.3000', [], 'phpbenchmarks'),
 		];
 	}
 }
